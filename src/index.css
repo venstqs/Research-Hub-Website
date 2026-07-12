@@ -1,0 +1,232 @@
+/* ─────────────────────────────────────────
+   RESEARCH HUB — Premium Flat Apple Theme (Polished)
+   ───────────────────────────────────────── */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Montserrat:wght@400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+/* ── Reset & Base ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* Flat Light Theme Color Palette */
+  --bg-body:        #F5F5F7; /* Apple system background */
+  --bg-surface:     #FFFFFF; /* White card panels */
+  --bg-sidebar:     #FFFFFF; /* White Sidebar */
+  --bg-hover:       rgba(0, 0, 0, 0.03); /* Subtle system hover overlay */
+  --bg-active:      rgba(0, 0, 0, 0.06);
+
+  /* Subtle iOS-like borders & dividers */
+  --border-subtle:  rgba(0, 0, 0, 0.02);
+  --border-default: rgba(0, 0, 0, 0.06);
+  --border-strong:  rgba(0, 0, 0, 0.12);
+
+  /* Typography Colors */
+  --text-primary:   #1D1D1F; /* Apple standard primary black */
+  --text-secondary: #515154; /* Apple secondary gray */
+  --text-muted:     #86868B;
+  --text-link:      #0071E3;
+
+  /* Accent Colors (Apple System Palette) */
+  --accent-blue:      #0071E3; /* Apple system blue */
+  --accent-blue-dim:  #F2F7FD;
+  
+  --life-science:       #34C759; /* Apple system green */
+  --life-science-dim:   #F2FAF4;
+  
+  --physical-science:   #AF52DE; /* Apple system purple */
+  --physical-science-dim: #FAF4FC;
+  
+  --robotics:           #FF9500; /* Apple system orange */
+  --robotics-dim:       #FFF9F2;
+  
+  --mathematics:        #FF3B30; /* Apple system red */
+  --mathematics-dim:    #FFF5F5;
+
+  --gold:               #FFD60A; /* Apple Yellow */
+  --gold-dim:           #FFFDF2;
+
+  /* Typography Scales */
+  --font-body:    'Poppins', 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-display: 'Montserrat', sans-serif;
+
+  /* Radii - Re-proportioned for clean Apple look */
+  --radius-sm:  8px;
+  --radius-md:  12px;
+  --radius-lg:  16px;
+  --radius-xl:  22px;
+
+  /* Transitions */
+  --ease-out: cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+html {
+  font-size: 15px;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-body);
+  color: var(--text-primary);
+  min-height: 100vh;
+  overflow-x: hidden;
+  line-height: 1.47;
+}
+
+/* ── Apple-style layout & panels ── */
+.dashboard-layout {
+  display: grid;
+  grid-template-columns: 270px 1fr;
+  min-height: 100vh;
+  background-color: var(--bg-body);
+}
+
+@media (max-width: 1024px) {
+  .dashboard-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.panel-card {
+  background: var(--bg-surface);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.02);
+  transition: all 0.25s var(--ease-out);
+}
+
+.panel-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+/* ── Button styles with precise px values matching Apple designs ── */
+.custom-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 38px;
+  padding: 0 20px;
+  border-radius: 19px; /* Pill design */
+  border: 1px solid var(--border-default);
+  background: var(--bg-surface);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 13.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s var(--ease-out);
+  gap: 8px;
+}
+
+.custom-btn:hover {
+  background: var(--bg-hover);
+  border-color: var(--border-strong);
+}
+
+.custom-btn-primary {
+  background: var(--accent-blue);
+  color: var(--bg-surface);
+  border-color: var(--accent-blue);
+}
+
+.custom-btn-primary:hover {
+  background: #0066CC;
+  border-color: #0066CC;
+}
+
+/* ── Badge & Tag designs ── */
+.custom-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px;
+  height: 22px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.badge-ste {
+  background: var(--accent-blue-dim);
+  color: var(--accent-blue);
+}
+
+.badge-stem {
+  background: var(--physical-science-dim);
+  color: var(--physical-science);
+}
+
+.badge-gold {
+  background: var(--gold-dim);
+  color: var(--gold);
+}
+
+/* ── Responsive Mobile Top/Bottom bar styles ── */
+.mobile-topbar {
+  display: none;
+  background: var(--bg-surface);
+  border-bottom: 1px solid var(--border-default);
+  height: 56px;
+  padding: 0 16px;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.mobile-nav-bar {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(20px);
+  border-top: 1px solid var(--border-default);
+  z-index: 100;
+  display: none;
+  justify-content: space-around;
+  align-items: center;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+@media (max-width: 1024px) {
+  .sidebar-container {
+    display: none !important;
+  }
+  .mobile-topbar {
+    display: flex !important;
+  }
+  .mobile-nav-bar {
+    display: flex !important;
+  }
+  .top-header-desktop {
+    display: none !important;
+  }
+  main {
+    padding: 16px 16px 80px !important;
+  }
+}
+
+/* ── Custom Animations ── */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in  { animation: fadeIn 0.3s var(--ease-out) forwards; }
+.animate-slide-up { animation: slideUp 0.35s var(--ease-out) forwards; }
